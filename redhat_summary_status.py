@@ -26,6 +26,10 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+# Configure SQLite for Python 3.12+ compatibility
+sqlite3.register_adapter(datetime, lambda dt: dt.isoformat())
+sqlite3.register_converter("datetime", lambda s: datetime.fromisoformat(s.decode()))
+
 # Optional imports for enhanced features
 try:
     import psutil
@@ -334,7 +338,7 @@ class DatabaseManager:
     
     def init_database(self) -> None:
         """Initialize SQLite database with required tables"""
-        with sqlite3.connect(self.db_path) as conn:
+        with sqlite3.connect(self.db_path, detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES) as conn:
             cursor = conn.cursor()
             
             # Status history table
@@ -397,7 +401,7 @@ class DatabaseManager:
     
     def store_status_history(self, data: Dict[str, Any]) -> None:
         """Store status data in database"""
-        with sqlite3.connect(self.db_path) as conn:
+        with sqlite3.connect(self.db_path, detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES) as conn:
             cursor = conn.cursor()
             
             components = data.get('components', [])
@@ -441,7 +445,7 @@ class DatabaseManager:
     
     def get_historical_data(self, hours: int = 24) -> List[Dict[str, Any]]:
         """Retrieve historical data for analysis"""
-        with sqlite3.connect(self.db_path) as conn:
+        with sqlite3.connect(self.db_path, detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES) as conn:
             cursor = conn.cursor()
             
             cursor.execute("""
@@ -474,7 +478,7 @@ class DatabaseManager:
     
     def cleanup_old_data(self, days: int = 30) -> None:
         """Clean up old data beyond retention period"""
-        with sqlite3.connect(self.db_path) as conn:
+        with sqlite3.connect(self.db_path, detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES) as conn:
             cursor = conn.cursor()
             
             tables = ['status_history', 'component_metrics', 'alerts']
@@ -1874,7 +1878,7 @@ def database_maintenance() -> None:
             return
         
         # Record counts
-        with sqlite3.connect(CONFIG["database"]["path"]) as conn:
+        with sqlite3.connect(CONFIG["database"]["path"], detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES) as conn:
             cursor = conn.cursor()
             
             tables = ['status_history', 'component_metrics', 'alerts', 'slo_tracking']
@@ -1906,7 +1910,7 @@ def database_maintenance() -> None:
         print("-" * 15)
         print("Running VACUUM and ANALYZE...")
         
-        with sqlite3.connect(CONFIG["database"]["path"]) as conn:
+        with sqlite3.connect(CONFIG["database"]["path"], detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES) as conn:
             conn.execute("VACUUM")
             conn.execute("ANALYZE")
         
