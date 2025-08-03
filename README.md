@@ -308,5 +308,5 @@ MIT License - Feel free to use and modify for enterprise or personal use.
 - **v1.0.0**: Basic French status checker
 
 **Project**: Red Hat Status Checker v3.0  
-**Maintainer**: Enhanced by GitHub Copilot  
+**Maintainer**: @dapiced Enhanced by GitHub Copilot  
 **Enterprise Ready**: ✅ Production-grade monitoring solution
