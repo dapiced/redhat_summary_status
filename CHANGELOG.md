@@ -229,5 +229,5 @@ This release represents a complete overhaul of the Red Hat Status Checker with s
 **Language**: Python 3.6+  
 **Dependencies**: requests, json, sys, os, argparse, datetime, typing, threading, concurrent.futures  
 **License**: MIT  
-**Maintainer**: Enhanced by GitHub Copilot on 2025-08-03  
+**Maintainer**: @dapiced Enhanced by GitHub Copilot on 2025-08-03  
 **Version**: 3.0.0 - Advanced Performance & Analytics Platform
