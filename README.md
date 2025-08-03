@@ -97,9 +97,133 @@ python3 redhat_summary_status.py --help
 python3 redhat_summary_status.py --version
 ```
 
+## 🔧 Simple Versions
+
+For users who prefer lightweight, streamlined functionality without the advanced enterprise features, we provide two simplified versions:
+
+### redhat_summary_status_simple_v1.py - Basic Version
+A minimal, fast script focused on core status checking with global availability percentage.
+
+**Features:**
+- ✅ Quick status check with global availability percentage
+- ✅ Simple service listing
+- ✅ Full hierarchical service structure
+- ✅ Data export capabilities (JSON/TXT)
+- ✅ Basic caching for performance
+- ✅ Clean, emoji-rich output
+- ✅ Quiet mode support
+
+**Usage:**
+```bash
+# Quick status with global availability %
+python3 redhat_summary_status_simple_v1.py quick
+
+# Quiet mode - minimal output
+python3 redhat_summary_status_simple_v1.py quick --quiet
+
+# Main services only
+python3 redhat_summary_status_simple_v1.py simple
+
+# Complete service hierarchy
+python3 redhat_summary_status_simple_v1.py full
+
+# Export data to files
+python3 redhat_summary_status_simple_v1.py export
+```
+
+**Key Benefits:**
+- 🚀 **Fast startup** - No complex initialization
+- 💾 **Low memory usage** - Minimal dependencies
+- 📊 **Global availability percentage** - Clear health status
+- 🎯 **Focused functionality** - Core features only
+
+### redhat_summary_status_simple_v2.py - Enhanced Simple Version
+An improved version with better configuration support and hierarchical display.
+
+**Features:**
+- ✅ All v1 features plus:
+- ✅ Configuration file support (`config_simple.json`)
+- ✅ Enhanced hierarchical service display
+- ✅ Improved error handling and retry logic
+- ✅ Better service grouping and organization
+- ✅ Percentage calculations for service groups
+- ✅ Interactive mode support
+- ✅ Configuration setup wizard (`--setup`)
+
+**Usage:**
+```bash
+# First time setup - create config_simple.json
+python3 redhat_summary_status_simple_v2.py --setup
+
+# Quick status (same as v1)
+python3 redhat_summary_status_simple_v2.py quick
+
+# Interactive mode - choose operation
+python3 redhat_summary_status_simple_v2.py
+
+# Enhanced hierarchical view
+python3 redhat_summary_status_simple_v2.py full
+
+# Export with configuration
+python3 redhat_summary_status_simple_v2.py export --output ./reports
+```
+
+**Key Benefits:**
+- ⚙️ **Configurable** - Uses config.json for settings
+- 🏗️ **Better hierarchy** - Improved service organization
+- 🎮 **Interactive mode** - User-friendly operation selection
+- 📈 **Group statistics** - Availability per service group
+
+### Which Version to Choose?
+
+| Feature | Enterprise v3.0 | Simple v2 | Simple v1 |
+|---------|----------------|-----------|-----------|
+| **Global Availability %** | ✅ | ✅ | ✅ |
+| **Basic Status Check** | ✅ | ✅ | ✅ |
+| **Service Hierarchy** | ✅ | ✅ | ✅ |
+| **Export Functions** | ✅ | ✅ | ✅ |
+| **Configuration File** | ✅ `config.json` | ✅ `config_simple.json` | ❌ |
+| **Setup Wizard** | ✅ | ✅ `--setup` | ❌ |
+| **Caching** | ✅ Advanced | ✅ Basic | ✅ Basic |
+| **AI Analytics** | ✅ | ❌ | ❌ |
+| **Database Backend** | ✅ | ❌ | ❌ |
+| **Email Notifications** | ✅ | ❌ | ❌ |
+| **Performance Monitoring** | ✅ | ❌ | ❌ |
+| **SLO Tracking** | ✅ | ❌ | ❌ |
+| **Memory Usage** | High | Medium | Low |
+| **Startup Time** | Slow | Medium | Fast |
+
+**Recommendations:**
+- 🏢 **Enterprise environments**: Use `redhat_summary_status.py` (v3.0)
+- 🏠 **Personal/small teams**: Use `redhat_summary_status_simple_v2.py`
+- ⚡ **Quick checks/scripts**: Use `redhat_summary_status_simple_v1.py`
+
 ## Configuration
 
-The script uses `config.json` for comprehensive customization:
+### Configuration Files Overview
+
+Different versions use different configuration files:
+
+| Version | Configuration File | Purpose |
+|---------|-------------------|---------|
+| **Enterprise v3.0** | `config.json` | Full enterprise configuration with analytics, notifications, caching |
+| **Simple v2** | `config_simple.json` | Simplified configuration for basic functionality |
+| **Simple v1** | None | No configuration file needed - works out of the box |
+| **Hierarchical** | `config.json` | Same as enterprise version |
+
+/home/John/Doe/
+├├── redhat_summary_status.py          # Enterprise v3.0 (3,288 lines)
+├── redhat_summary_status_simple_v1.py # Simple v1 (379 lines)
+├── redhat_summary_status_simple_v2.py # Simple v2 (599 lines)
+├── config.json                        # Enterprise configuration
+├── config_simple.json                 # Simple v2 configuration  
+├── README.md                          # Complete documentation (763 lines)
+├── CHANGELOG.md                       # Version history (375 lines)
+└── test_email_config.py               # Utility script
+
+### Enterprise Configuration (config.json)
+
+The enterprise script uses `config.json` for comprehensive customization:
 
 ```json
 {
@@ -189,6 +313,54 @@ The script uses `config.json` for comprehensive customization:
   }
 }
 ```
+
+### Simple Configuration (config_simple.json)
+
+The simple v2 version uses a streamlined configuration file for basic functionality:
+
+```json
+{
+  "_comment": "Configuration file for Red Hat Status Checker Simple Versions (v1 and v2)",
+  "_note": "This is a simplified configuration with only essential settings",
+  "_versions": "redhat_summary_status_simple_v1.py (uses no config), redhat_summary_status_simple_v2.py (uses this config)",
+  
+  "api": {
+    "url": "https://status.redhat.com/api/v2/summary.json",
+    "timeout": 10,
+    "max_retries": 3,
+    "retry_delay": 2
+  },
+  "output": {
+    "default_directory": ".",
+    "timestamp_format": "%Y%m%d_%H%M%S"
+  },
+  "display": {
+    "show_percentages": true,
+    "show_health_indicator": true,
+    "show_group_summaries": true
+  }
+}
+```
+
+#### Creating Simple Configuration
+
+To create or update the simple configuration file:
+
+```bash
+# Create config_simple.json for simple v2
+python3 redhat_summary_status_simple_v2.py --setup
+
+# The setup will create config_simple.json with sensible defaults
+# You can then edit the file manually if needed
+```
+
+**Key differences from enterprise config:**
+- ❌ No caching configuration
+- ❌ No notification settings  
+- ❌ No logging configuration
+- ❌ No monitoring thresholds
+- ✅ Only essential API and display settings
+- ✅ Lightweight and simple to manage
 
 ## 📧 Email Notifications Setup
 

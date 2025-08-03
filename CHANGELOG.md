@@ -231,3 +231,145 @@ This release represents a complete overhaul of the Red Hat Status Checker with s
 **License**: MIT  
 **Maintainer**: @dapiced Enhanced by GitHub Copilot on 2025-08-03  
 **Version**: 3.0.0 - Advanced Performance & Analytics Platform
+
+## Simple Versions
+
+### [Simple v2.0] - 2025-08-03 (redhat_summary_status_simple_v2.py)
+
+#### 🎯 Enhanced Simple Version with Configuration Support
+
+**Purpose**: Provides a middle-ground solution between the basic v1 and the full enterprise version, offering enhanced functionality while maintaining simplicity.
+
+#### ✨ Features Added
+
+##### Configuration Management
+- **JSON Configuration**: Support for `config.json` file for persistent settings
+- **Interactive Configuration**: Built-in configuration wizard (`--setup`)
+- **Default Settings**: Intelligent defaults that work out-of-the-box
+- **Configuration Validation**: Automatic validation of configuration parameters
+
+##### Enhanced Display & Analytics
+- **Global Availability %**: Shows overall system availability percentage in quick/quiet modes
+- **Improved Service Grouping**: Better organization of service status by category
+- **Enhanced Hierarchy**: Clearer display of service relationships and dependencies
+- **Status Indicators**: Visual indicators for system health (✅ Good, ⚠️ Issues, ❌ Problems)
+
+##### Advanced Quick Mode
+- **Quick Status with Global %**: `--quick` now shows global availability percentage
+- **Quiet Mode Enhancement**: `--quick --quiet` displays minimal output with global availability
+- **Health Summary**: Quick overview of system health status
+
+#### 🔧 Technical Improvements
+- **Better Error Handling**: More robust error management and user feedback
+- **Code Organization**: Improved structure with better separation of concerns
+- **Documentation**: Enhanced inline documentation and help text
+- **Performance**: Optimized for faster execution with configuration caching
+
+#### 📊 Usage Examples
+```bash
+# Setup configuration interactively
+python redhat_summary_status_simple_v2.py --setup
+
+# Quick status with global availability %
+python redhat_summary_status_simple_v2.py --quick
+# Output: Global Availability: 94.2% ✅ System Status: Good
+
+# Minimal quiet output
+python redhat_summary_status_simple_v2.py --quick --quiet
+# Output: 94.2%
+```
+
+#### 🎯 Target Use Cases
+- **Automated Monitoring**: Perfect for scripts that need configuration persistence
+- **Team Environments**: Shared configuration across team members
+- **Enhanced Reporting**: Better output formatting for reports and dashboards
+- **Configuration-Heavy Deployments**: Environments requiring customized settings
+
+#### 📦 Dependencies
+- **Core**: requests, json, pathlib, argparse, datetime
+- **Optional**: Configuration file support, enhanced error handling
+- **Size**: 537 lines (~19.5KB)
+
+---
+
+### [Simple v1.0] - 2025-08-03 (redhat_summary_status_simple_v1.py)
+
+#### 🎯 Minimal Core Functionality Version
+
+**Purpose**: Provides the essential Red Hat status checking functionality with global availability percentage, perfect for users who need core features without complexity.
+
+#### ✨ Core Features
+
+##### Essential Status Checking
+- **Service Status Monitoring**: Monitors all Red Hat services and platforms
+- **Global Availability %**: Calculates and displays overall system availability percentage
+- **Quick Mode**: Fast status checking with `--quick` option
+- **Quiet Mode**: Minimal output with `--quick --quiet` for automation
+- **Basic Caching**: Simple file-based caching for performance
+
+##### Clean Output Formats
+- **Standard Display**: Clean, organized service status listing
+- **Global Metrics**: Overall availability percentage calculation
+- **Health Indicators**: Simple status indicators for quick assessment
+- **Minimal Dependencies**: Uses only essential Python libraries
+
+##### Quick Mode Implementation
+- **Global Availability Display**: Shows system-wide availability percentage
+- **Quiet Output**: Perfect for scripts and automation (`--quick --quiet` shows just the percentage)
+- **Fast Execution**: Optimized for speed with minimal overhead
+
+#### 🔧 Technical Specifications
+- **Pure Functionality**: No configuration files, no complex setup
+- **Lightweight**: Minimal resource usage and fast startup
+- **Simple Architecture**: Straightforward code structure for easy understanding
+- **Basic Error Handling**: Essential error management without complexity
+
+#### 📊 Usage Examples
+```bash
+# Quick status with global availability
+python redhat_summary_status_simple_v1.py --quick
+# Output: Global Availability: 94.2%
+
+# Minimal output for automation
+python redhat_summary_status_simple_v1.py --quick --quiet
+# Output: 94.2
+
+# Full status display
+python redhat_summary_status_simple_v1.py
+# Shows complete service listing with availability percentage
+```
+
+#### 🎯 Target Use Cases
+- **Simple Monitoring**: Basic status checking without configuration overhead
+- **Automation Scripts**: Perfect for simple automation and monitoring scripts
+- **Learning/Testing**: Ideal for understanding the core functionality
+- **Minimal Deployments**: Environments where simplicity is paramount
+- **Quick Checks**: Fast status verification without setup requirements
+
+#### 📦 Dependencies
+- **Minimal**: requests, json, pathlib, argparse, datetime
+- **No External Config**: Everything works out-of-the-box
+- **Size**: 380 lines (~12.9KB)
+
+---
+
+## Version Comparison Quick Reference
+
+| Feature | Simple v1 | Simple v2 | Enterprise v3.0 |
+|---------|-----------|-----------|------------------|
+| **Size** | 380 lines | 537 lines | 3,289 lines |
+| **Dependencies** | Minimal | Medium | Complex |
+| **Configuration** | None | JSON file | Advanced config |
+| **Global Availability %** | ✅ | ✅ | ✅ |
+| **Quick/Quiet Mode** | ✅ | ✅ | ✅ |
+| **Setup Required** | None | Optional | Required |
+| **Database** | ❌ | ❌ | ✅ SQLite |
+| **AI Analytics** | ❌ | ❌ | ✅ |
+| **Notifications** | ❌ | ❌ | ✅ |
+| **Performance Monitoring** | ❌ | ❌ | ✅ |
+| **Best For** | Simplicity | Balance | Enterprise |
+
+Choose the version that best fits your needs:
+- **Simple v1**: Maximum simplicity, no setup required
+- **Simple v2**: Balance of features and simplicity with configuration support
+- **Enterprise v3.0**: Full-featured monitoring platform with AI analytics
