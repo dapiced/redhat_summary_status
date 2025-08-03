@@ -211,8 +211,11 @@ Different versions use different configuration files:
 | **Simple v1** | None | No configuration file needed - works out of the box |
 | **Hierarchical** | `config.json` | Same as enterprise version |
 
-/home/John/Doe/
-├├── redhat_summary_status.py          # Enterprise v3.0 (3,288 lines)
+### Project Structure
+
+```
+/home/dom/bin/
+├── redhat_summary_status.py          # Enterprise v3.0 (3,288 lines)
 ├── redhat_summary_status_simple_v1.py # Simple v1 (379 lines)
 ├── redhat_summary_status_simple_v2.py # Simple v2 (599 lines)
 ├── config.json                        # Enterprise configuration
@@ -220,6 +223,7 @@ Different versions use different configuration files:
 ├── README.md                          # Complete documentation (763 lines)
 ├── CHANGELOG.md                       # Version history (375 lines)
 └── test_email_config.py               # Utility script
+```
 
 ### Enterprise Configuration (config.json)
 
