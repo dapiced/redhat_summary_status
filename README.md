@@ -135,8 +135,235 @@ The script uses `config.json` for comprehensive customization:
     "detailed_timing": false,
     "memory_profiling": false,
     "max_concurrent_operations": 5
+  },
+  "ai_analytics": {
+    "enabled": true,
+    "anomaly_detection": true,
+    "predictive_analysis": true,
+    "learning_window": 50,
+    "anomaly_threshold": 2.0,
+    "min_confidence": 0.7
+  },
+  "database": {
+    "enabled": true,
+    "path": "redhat_monitoring.db",
+    "retention_days": 30,
+    "auto_cleanup": true
+  },
+  "notifications": {
+    "email": {
+      "enabled": false,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "use_tls": true,
+      "from_address": "alerts@yourcompany.com",
+      "to_addresses": ["admin@yourcompany.com", "ops@yourcompany.com"],
+      "username": "your_email@gmail.com",
+      "password": "your_app_password"
+    },
+    "webhooks": {
+      "enabled": false,
+      "urls": [
+        "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+        "https://discord.com/api/webhooks/YOUR/DISCORD/WEBHOOK"
+      ]
+    }
+  },
+  "slo": {
+    "enabled": true,
+    "targets": {
+      "global_availability": 99.9,
+      "response_time": 2.0,
+      "uptime_monthly": 99.5
+    },
+    "tracking_period": "monthly",
+    "alert_on_breach": true
+  },
+  "logging": {
+    "enabled": false,
+    "level": "INFO",
+    "file": "redhat_status.log",
+    "max_size_mb": 10,
+    "backup_count": 5,
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
   }
 }
+```
+
+## 📧 Email Notifications Setup
+
+### Gmail Configuration
+To enable email alerts with Gmail:
+
+1. **Create a config.json file** with your email settings:
+```json
+{
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "use_tls": true,
+      "from_address": "your-email@gmail.com",
+      "to_addresses": ["admin@company.com", "ops@company.com"],
+      "username": "your-email@gmail.com",
+      "password": "your-app-password"
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "alert_thresholds": {
+      "availability_critical": 85.0,
+      "availability_warning": 95.0
+    }
+  }
+}
+```
+
+2. **Generate Gmail App Password:**
+   - Go to Gmail Settings → Security → 2-Step Verification
+   - Generate an "App Password" for this application
+   - Use the app password (not your regular password)
+
+3. **Test email alerts:**
+```bash
+# Enable monitoring and test with critical threshold
+python3 redhat_summary_status.py --anomaly-analysis --enable-monitoring
+```
+
+### Microsoft Outlook/Office 365 Configuration
+```json
+{
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "smtp_server": "smtp-mail.outlook.com",
+      "smtp_port": 587,
+      "use_tls": true,
+      "from_address": "your-email@outlook.com",
+      "to_addresses": ["admin@company.com"],
+      "username": "your-email@outlook.com",
+      "password": "your-password"
+    }
+  }
+}
+```
+
+### Corporate SMTP Configuration
+```json
+{
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "smtp_server": "smtp.yourcompany.com",
+      "smtp_port": 25,
+      "use_tls": false,
+      "from_address": "redhat-alerts@yourcompany.com",
+      "to_addresses": [
+        "sysadmin@yourcompany.com",
+        "devops@yourcompany.com",
+        "management@yourcompany.com"
+      ],
+      "username": "",
+      "password": ""
+    }
+  }
+}
+```
+
+## 🔔 Webhook Notifications (Slack/Teams/Discord)
+
+### Slack Integration
+```json
+{
+  "notifications": {
+    "webhooks": {
+      "enabled": true,
+      "urls": [
+        "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
+      ]
+    }
+  }
+}
+```
+
+**Setup Steps:**
+1. Go to your Slack workspace
+2. Create a new app and enable incoming webhooks
+3. Copy the webhook URL
+4. Add to config.json
+
+### Microsoft Teams Integration
+```json
+{
+  "notifications": {
+    "webhooks": {
+      "enabled": true,
+      "urls": [
+        "https://yourcompany.webhook.office.com/webhookb2/xxx/IncomingWebhook/xxx"
+      ]
+    }
+  }
+}
+```
+
+### Discord Integration
+```json
+{
+  "notifications": {
+    "webhooks": {
+      "enabled": true,
+      "urls": [
+        "https://discord.com/api/webhooks/123456789/XXXXXXXXXXXXXXXXXXXXXXXX"
+      ]
+    }
+  }
+}
+```
+
+## ⚡ Triggering Alerts
+
+Alerts are automatically sent when:
+- System availability drops below critical threshold (85% by default)
+- Anomalies are detected by AI analytics
+- SLO targets are breached
+- Performance degradation is detected
+
+### Manual Alert Testing
+```bash
+# Test email configuration
+python3 redhat_summary_status.py --anomaly-analysis --enable-monitoring
+
+# Force alert with low threshold
+python3 redhat_summary_status.py quick --enable-monitoring
+```
+
+### Alert Types Sent
+
+**Critical Alerts:**
+- System availability below 85%
+- Multiple service failures
+- Database connection failures
+- API timeouts exceeding thresholds
+
+**Warning Alerts:**
+- Availability below 95%
+- Performance degradation
+- Cache failures
+- SLO threshold approaches
+
+**Example Email Alert:**
+```
+Subject: [CRITICAL] Red Hat Status Alert - Global System
+
+Red Hat Status Alert
+
+Severity: CRITICAL
+Component: Global System  
+Message: System availability critically low: 83.2%
+Timestamp: 2025-08-03 14:30:22
+
+This is an automated alert from Red Hat Status Monitoring System.
 ```
 
 ## Requirements
@@ -149,6 +376,61 @@ The script uses `config.json` for comprehensive customization:
 pip install requests
 pip install psutil  # Optional, for memory metrics
 ```
+
+## 🚀 Quick Setup for Email Alerts
+
+1. **Copy the example configuration:**
+```bash
+cp config.example.json config.json
+```
+
+2. **Edit config.json with your email settings:**
+```bash
+nano config.json
+# Or use your preferred editor
+```
+
+3. **Enable email notifications:**
+```json
+{
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "from_address": "your-email@gmail.com",
+      "to_addresses": ["admin@company.com"],
+      "username": "your-email@gmail.com", 
+      "password": "your-gmail-app-password"
+    }
+  },
+  "monitoring": {
+    "enabled": true
+  }
+}
+```
+
+4. **Test the email setup:**
+```bash
+# Test email configuration independently  
+python3 test_email_config.py
+
+# Or test through the main script
+python3 redhat_summary_status.py --anomaly-analysis --enable-monitoring
+```
+
+**📱 Pro Tip:** For production use, set up both email and Slack/Teams webhooks for redundant alerting!
+
+### Email Test Script
+A dedicated email test script is included for easy configuration validation:
+
+```bash
+python3 test_email_config.py
+```
+
+This will:
+- ✅ Validate your config.json email settings
+- 📧 Send a test email to verify connectivity  
+- 🔧 Provide troubleshooting tips for common issues
+- 📊 Display configuration details
 
 ## Environment Variables
 
