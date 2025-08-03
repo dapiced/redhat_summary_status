@@ -1,0 +1,18 @@
+{
+  "api": {
+    "url": "https://status.redhat.com/api/v2/summary.json",
+    "timeout": 10,
+    "max_retries": 3,
+    "retry_delay": 2
+  },
+  "output": {
+    "default_directory": ".",
+    "create_summary_report": true,
+    "timestamp_format": "%Y%m%d_%H%M%S"
+  },
+  "display": {
+    "show_percentages": true,
+    "show_health_indicator": true,
+    "show_group_summaries": true
+  }
+}
