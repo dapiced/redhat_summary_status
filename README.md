@@ -58,6 +58,11 @@ python3 redhat_summary_status.py all                # Display everything
 python3 redhat_summary_status.py --health-report    # Comprehensive health analysis
 python3 redhat_summary_status.py --performance      # Performance metrics dashboard
 python3 redhat_summary_status.py --insights         # System insights & patterns
+python3 redhat_summary_status.py --ai-insights      # Show detailed AI analysis
+python3 redhat_summary_status.py --slo-dashboard    # View SLO tracking
+python3 redhat_summary_status.py --anomaly-analysis # Advanced anomaly detection
+python3 redhat_summary_status.py --export-ai-report # Generate AI analysis report
+python3 redhat_summary_status.py --db-maintenance   # Database cleanup and optimization
 python3 redhat_summary_status.py --concurrent-check # Multi-threaded health checks
 python3 redhat_summary_status.py --benchmark        # Performance benchmarking
 python3 redhat_summary_status.py --config-check     # Configuration validation
@@ -70,7 +75,7 @@ python3 redhat_summary_status.py quick --watch 30 --notify  # Live monitoring wi
 # === Filtering & Search ===
 python3 redhat_summary_status.py simple --filter issues     # Show only problems
 python3 redhat_summary_status.py simple --search "ansible"  # Search services
-python3 redhat_summary_status.py simple --filter operational --search "cloud"
+python3 redhat_summary_status.py simple --filter operational --search "cloud" # Search and filter
 
 # === Output Formats ===
 python3 redhat_summary_status.py simple --format json       # JSON output
