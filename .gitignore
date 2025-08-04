@@ -9,6 +9,21 @@ redhat_status_*.csv
 redhat_summary_*.txt
 status_history_*.csv
 
+# Database files
+*.db
+*.db-shm
+*.db-wal
+redhat_analytics.db
+redhat_monitoring.db
+
+# AI/ML export files
+ai_analysis_report_*.json
+ai_analysis_report_*.csv
+ai_analysis_report_*.txt
+historical_data_*.json
+historical_data_*.csv
+historical_data_*.txt
+
 # Python cache
 __pycache__/
 *.pyc
