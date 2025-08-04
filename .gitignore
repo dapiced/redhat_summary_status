@@ -17,10 +17,8 @@ __pycache__/
 .Python
 
 # Environment files
-.env
 .venv/
 venv/
-env/
 
 # IDE files
 .vscode/
