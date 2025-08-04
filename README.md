@@ -23,7 +23,7 @@ The Red Hat Status Checker is a sophisticated monitoring platform that provides 
 
 ### Modular Structure
 ```
-redhat_status_modular.py           # Main launcher script (36 lines)
+redhat_status.py                   # Main launcher script (36 lines)
 redhat_status/                     # Modular package structure
 ├── __init__.py                    # Package initialization
 ├── main.py                        # Application entry point (687 lines)
@@ -74,52 +74,52 @@ redhat_status/                     # Modular package structure
 
 ```bash
 # Quick global status check
-python3 redhat_status_modular.py quick
+python3 redhat_status.py quick
 # OR: python3 redhat_status/main.py quick
 
 # Quiet mode for scripting
-python3 redhat_status_modular.py quick --quiet
+python3 redhat_status.py quick --quiet
 
 # Main services monitoring
-python3 redhat_status_modular.py simple
+python3 redhat_status.py simple
 
 # Complete service hierarchy
-python3 redhat_status_modular.py full
+python3 redhat_status.py full
 
 # Export data to files
-python3 redhat_status_modular.py export
+python3 redhat_status.py export
 
 # Display everything
-python3 redhat_status_modular.py all
+python3 redhat_status.py all
 ```
 
 ### Performance & Enterprise Features
 
 ```bash
 # Show performance metrics
-python3 redhat_status_modular.py quick --performance
+python3 redhat_status.py quick --performance
 
 # Configuration validation
-python3 redhat_status_modular.py --config-check
+python3 redhat_status.py --config-check
 
 # Test notification channels
-python3 redhat_status_modular.py --test-notifications
+python3 redhat_status.py --test-notifications
 
 # AI analytics summary
-python3 redhat_status_modular.py --analytics-summary
+python3 redhat_status.py --analytics-summary
 
 # Database maintenance
-python3 redhat_status_modular.py --db-maintenance
+python3 redhat_status.py --db-maintenance
 
 # Clear cache
-python3 redhat_status_modular.py --clear-cache
+python3 redhat_status.py --clear-cache
 ```
 
 ### Interactive Mode
 
 ```bash
 # Interactive mode - choose operation
-python3 redhat_status_modular.py
+python3 redhat_status.py
 ```
 
 ## 📊 Core Features
@@ -185,29 +185,29 @@ python3 redhat_status_modular.py
 #### AI-Powered Analysis
 ```bash
 # Detailed AI analysis with confidence scores and patterns
-python3 redhat_status_modular.py --ai-insights
+python3 redhat_status.py --ai-insights
 
 # Advanced anomaly detection with severity levels
-python3 redhat_status_modular.py --anomaly-analysis
+python3 redhat_status.py --anomaly-analysis
 
 # System insights and behavioral patterns
-python3 redhat_status_modular.py --insights
+python3 redhat_status.py --insights
 
 # Availability trends and predictive analysis
-python3 redhat_status_modular.py --trends
+python3 redhat_status.py --trends
 
 # SLO tracking and objectives dashboard
-python3 redhat_status_modular.py --slo-dashboard
+python3 redhat_status.py --slo-dashboard
 ```
 
 #### Health Reporting
 ```bash
 # Comprehensive health analysis with grading (A+ to F)
-python3 redhat_status_modular.py --health-report
+python3 redhat_status.py --health-report
 
 # Export AI analysis to various formats
-python3 redhat_status_modular.py --export-ai-report --format json
-python3 redhat_status_modular.py --export-ai-report --format csv
+python3 redhat_status.py --export-ai-report --format json
+python3 redhat_status.py --export-ai-report --format csv
 ```
 
 ### 🔍 Service Operations
@@ -215,20 +215,20 @@ python3 redhat_status_modular.py --export-ai-report --format csv
 #### Filtering & Search
 ```bash
 # Show only services with issues
-python3 redhat_status_modular.py --filter issues
+python3 redhat_status.py --filter issues
 
 # Show only operational services
-python3 redhat_status_modular.py --filter operational
+python3 redhat_status.py --filter operational
 
 # Show services with degraded performance
-python3 redhat_status_modular.py --filter degraded
+python3 redhat_status.py --filter degraded
 
 # Search for specific services
-python3 redhat_status_modular.py --search "openshift"
-python3 redhat_status_modular.py --search "satellite"
+python3 redhat_status.py --search "openshift"
+python3 redhat_status.py --search "satellite"
 
 # Combine filtering and search
-python3 redhat_status_modular.py --search "registry" --filter issues
+python3 redhat_status.py --search "registry" --filter issues
 ```
 
 ### 📊 Live Monitoring
@@ -236,22 +236,22 @@ python3 redhat_status_modular.py --search "registry" --filter issues
 #### Watch Mode
 ```bash
 # Live monitoring with 30-second refresh
-python3 redhat_status_modular.py --watch 30
+python3 redhat_status.py --watch 30
 
 # Quiet live monitoring for dashboards
-python3 redhat_status_modular.py --watch 60 --quiet
+python3 redhat_status.py --watch 60 --quiet
 
 # Enable continuous monitoring features
-python3 redhat_status_modular.py --enable-monitoring
+python3 redhat_status.py --enable-monitoring
 ```
 
 #### Notifications
 ```bash
 # Send immediate status notifications
-python3 redhat_status_modular.py --notify
+python3 redhat_status.py --notify
 
 # Test all notification channels
-python3 redhat_status_modular.py --test-notifications
+python3 redhat_status.py --test-notifications
 ```
 
 ### ⚡ Performance Features
@@ -259,16 +259,16 @@ python3 redhat_status_modular.py --test-notifications
 #### Benchmarking & Optimization
 ```bash
 # Run performance benchmarking tests
-python3 redhat_status_modular.py --benchmark
+python3 redhat_status.py --benchmark
 
 # Enable multi-threaded health checks
-python3 redhat_status_modular.py --concurrent-check
+python3 redhat_status.py --concurrent-check
 
 # Bypass cache for fresh data
-python3 redhat_status_modular.py --no-cache
+python3 redhat_status.py --no-cache
 
 # Show detailed performance metrics
-python3 redhat_status_modular.py quick --performance
+python3 redhat_status.py quick --performance
 ```
 
 ### 📁 Export & Data Management
@@ -276,13 +276,13 @@ python3 redhat_status_modular.py quick --performance
 #### Historical Data Export
 ```bash
 # Export historical data in JSON format
-python3 redhat_status_modular.py --export-history
+python3 redhat_status.py --export-history
 
 # Export in CSV format
-python3 redhat_status_modular.py --export-history --format csv
+python3 redhat_status.py --export-history --format csv
 
 # Export to specific directory
-python3 redhat_status_modular.py --export-history --output ./reports
+python3 redhat_status.py --export-history --output ./reports
 ```
 
 #### Format Options
@@ -295,25 +295,25 @@ python3 redhat_status_modular.py --export-history --output ./reports
 #### Logging & Debugging
 ```bash
 # Enable debug logging
-python3 redhat_status_modular.py --log-level DEBUG
+python3 redhat_status.py --log-level DEBUG
 
 # Warning level only
-python3 redhat_status_modular.py --log-level WARNING
+python3 redhat_status.py --log-level WARNING
 
 # Error level only
-python3 redhat_status_modular.py --log-level ERROR
+python3 redhat_status.py --log-level ERROR
 ```
 
 #### Configuration Management
 ```bash
 # Validate configuration files
-python3 redhat_status_modular.py --config-check
+python3 redhat_status.py --config-check
 
 # Run configuration setup wizard
-python3 redhat_status_modular.py --setup
+python3 redhat_status.py --setup
 
 # Database maintenance and cleanup
-python3 redhat_status_modular.py --db-maintenance
+python3 redhat_status.py --db-maintenance
 ```
 
 ## �📋 Command Line Interface
@@ -366,68 +366,68 @@ python3 redhat_status_modular.py --db-maintenance
 
 ```bash
 # === Core Operations ===
-python3 redhat_status_modular.py quick              # Quick global status
-python3 redhat_status_modular.py simple             # Main services check
-python3 redhat_status_modular.py full               # Complete structure
-python3 redhat_status_modular.py export             # Export data to files
-python3 redhat_status_modular.py all                # Display everything
+python3 redhat_status.py quick              # Quick global status
+python3 redhat_status.py simple             # Main services check
+python3 redhat_status.py full               # Complete structure
+python3 redhat_status.py export             # Export data to files
+python3 redhat_status.py all                # Display everything
 
 # === Output Control ===
-python3 redhat_status_modular.py quick --quiet      # Minimal output
-python3 redhat_status_modular.py export --output ./reports  # Custom directory
+python3 redhat_status.py quick --quiet      # Minimal output
+python3 redhat_status.py export --output ./reports  # Custom directory
 
 # === Performance & Monitoring ===
-python3 redhat_status_modular.py quick --performance        # Show metrics
-python3 redhat_status_modular.py --clear-cache              # Clear cache
-python3 redhat_status_modular.py --benchmark                # Performance tests
-python3 redhat_status_modular.py --no-cache                 # Bypass cache
-python3 redhat_status_modular.py --concurrent-check         # Multi-threaded checks
+python3 redhat_status.py quick --performance        # Show metrics
+python3 redhat_status.py --clear-cache              # Clear cache
+python3 redhat_status.py --benchmark                # Performance tests
+python3 redhat_status.py --no-cache                 # Bypass cache
+python3 redhat_status.py --concurrent-check         # Multi-threaded checks
 
 # === AI Analytics & Insights ===
-python3 redhat_status_modular.py --ai-insights              # Detailed AI analysis
-python3 redhat_status_modular.py --health-report            # Comprehensive health report
-python3 redhat_status_modular.py --anomaly-analysis         # Advanced anomaly detection
-python3 redhat_status_modular.py --insights                 # System patterns & insights
-python3 redhat_status_modular.py --trends                   # Availability trends
-python3 redhat_status_modular.py --slo-dashboard            # SLO tracking dashboard
+python3 redhat_status.py --ai-insights              # Detailed AI analysis
+python3 redhat_status.py --health-report            # Comprehensive health report
+python3 redhat_status.py --anomaly-analysis         # Advanced anomaly detection
+python3 redhat_status.py --insights                 # System patterns & insights
+python3 redhat_status.py --trends                   # Availability trends
+python3 redhat_status.py --slo-dashboard            # SLO tracking dashboard
 
 # === Export & Reporting ===
-python3 redhat_status_modular.py --export-ai-report         # Export AI analysis
-python3 redhat_status_modular.py --export-history           # Export historical data
-python3 redhat_status_modular.py --export-ai-report --format csv  # CSV format
-python3 redhat_status_modular.py --export-history --format txt    # Text format
+python3 redhat_status.py --export-ai-report         # Export AI analysis
+python3 redhat_status.py --export-history           # Export historical data
+python3 redhat_status.py --export-ai-report --format csv  # CSV format
+python3 redhat_status.py --export-history --format txt    # Text format
 
 # === Service Operations ===
-python3 redhat_status_modular.py --filter issues            # Show only problematic services
-python3 redhat_status_modular.py --filter operational       # Show only healthy services
-python3 redhat_status_modular.py --search "registry"        # Search for specific services
-python3 redhat_status_modular.py --search "openshift" --filter issues  # Combined filtering
+python3 redhat_status.py --filter issues            # Show only problematic services
+python3 redhat_status.py --filter operational       # Show only healthy services
+python3 redhat_status.py --search "registry"        # Search for specific services
+python3 redhat_status.py --search "openshift" --filter issues  # Combined filtering
 
 # === Live Monitoring ===
-python3 redhat_status_modular.py --watch 30                 # Live monitor (30s refresh)
-python3 redhat_status_modular.py --watch 60 --quiet         # Quiet live monitoring
-python3 redhat_status_modular.py --notify                   # Send status notifications
-python3 redhat_status_modular.py --enable-monitoring        # Enable continuous monitoring
+python3 redhat_status.py --watch 30                 # Live monitor (30s refresh)
+python3 redhat_status.py --watch 60 --quiet         # Quiet live monitoring
+python3 redhat_status.py --notify                   # Send status notifications
+python3 redhat_status.py --enable-monitoring        # Enable continuous monitoring
 
 # === Enterprise Features ===
-python3 redhat_status_modular.py --config-check            # Validate config
-python3 redhat_status_modular.py --test-notifications      # Test alerts
-python3 redhat_status_modular.py --analytics-summary       # AI insights summary
-python3 redhat_status_modular.py --db-maintenance          # DB cleanup
+python3 redhat_status.py --config-check            # Validate config
+python3 redhat_status.py --test-notifications      # Test alerts
+python3 redhat_status.py --analytics-summary       # AI insights summary
+python3 redhat_status.py --db-maintenance          # DB cleanup
 
 # === Debug & Configuration ===
-python3 redhat_status_modular.py --log-level DEBUG         # Enable debug logging
-python3 redhat_status_modular.py --setup                   # Configuration wizard
-python3 redhat_status_modular.py --version                 # Show version
-python3 redhat_status_modular.py --help                    # Show help
+python3 redhat_status.py --log-level DEBUG         # Enable debug logging
+python3 redhat_status.py --setup                   # Configuration wizard
+python3 redhat_status.py --version                 # Show version
+python3 redhat_status.py --help                    # Show help
 
 # === Combined Examples ===
-python3 redhat_status_modular.py quick --performance --ai-insights  # Status + performance + AI
-python3 redhat_status_modular.py --filter issues --notify --format json  # Alert on issues
-python3 redhat_status_modular.py --search "satellite" --export-ai-report  # Satellite AI analysis
+python3 redhat_status.py quick --performance --ai-insights  # Status + performance + AI
+python3 redhat_status.py --filter issues --notify --format json  # Alert on issues
+python3 redhat_status.py --search "satellite" --export-ai-report  # Satellite AI analysis
 
 # === Interactive Mode ===
-python3 redhat_status_modular.py                           # Choose operation interactively
+python3 redhat_status.py                           # Choose operation interactively
 ```
 
 ## 🔧 Configuration
@@ -530,7 +530,7 @@ export REDHAT_STATUS_CACHE_TTL=300
 Or use the provided `.env` file:
 ```bash
 source .env
-python3 redhat_status_modular.py quick
+python3 redhat_status.py quick
 ```
 
 ## 📧 Notification Setup
@@ -562,7 +562,7 @@ python3 redhat_status_modular.py quick
 
 3. **Test email setup:**
 ```bash
-python3 redhat_status_modular.py --test-notifications
+python3 redhat_status.py --test-notifications
 ```
 
 ### Webhook Notifications (Slack/Teams/Discord)
@@ -632,9 +632,9 @@ python3 redhat_status_modular.py --test-notifications
 1. **Download/Clone** the modular version files
 2. **Set Permissions** (Linux/macOS):
    ```bash
-   chmod +x redhat_status_modular.py
+   chmod +x redhat_status.py
    ```
-   *Note: The launcher script `redhat_status_modular.py` is included and provides easy access to all features.*
+   *Note: The launcher script `redhat_status.py` is included and provides easy access to all features.*
 3. **Clean Legacy Files** (if upgrading from monolithic version):
    ```bash
    # Archive the original large monolithic file (optional)
@@ -646,7 +646,7 @@ python3 redhat_status_modular.py --test-notifications
    ```
 4. **Test Installation**:
    ```bash
-   python3 redhat_status_modular.py --version
+   python3 redhat_status.py --version
    ```
 5. **Configuration is ready** (optional customization):
    ```bash
@@ -658,20 +658,20 @@ python3 redhat_status_modular.py --test-notifications
 
 ```bash
 # Verify all dependencies and modules
-python3 redhat_status_modular.py --config-check
+python3 redhat_status.py --config-check
 
 # Test basic functionality
-python3 redhat_status_modular.py quick --quiet
+python3 redhat_status.py quick --quiet
 
 # Test enterprise features (if configured)
-python3 redhat_status_modular.py --analytics-summary
+python3 redhat_status.py --analytics-summary
 ```
 
 ## 🔍 Output Examples
 
 ### Basic Status Check
 ```bash
-$ python3 redhat_status_modular.py quick
+$ python3 redhat_status.py quick
 🎯 RED HAT STATUS CHECKER - MODULAR EDITION v3.1.0
 ============================================================
 
@@ -693,7 +693,7 @@ $ python3 redhat_status_modular.py quick
 
 ### Performance Monitoring
 ```bash
-$ python3 redhat_status_modular.py quick --performance
+$ python3 redhat_status.py quick --performance
 # ... status output ...
 
 ⚡ PERFORMANCE METRICS
@@ -710,7 +710,7 @@ $ python3 redhat_status_modular.py quick --performance
 
 ### Configuration Validation
 ```bash
-$ python3 redhat_status_modular.py --config-check
+$ python3 redhat_status.py --config-check
 🔧 CONFIGURATION VALIDATION
 ========================================
 Status: ✅ Valid
@@ -725,7 +725,7 @@ Configuration Summary:
 
 ### Notification Testing
 ```bash
-$ python3 redhat_status_modular.py --test-notifications
+$ python3 redhat_status.py --test-notifications
 🧪 TESTING NOTIFICATION CHANNELS
 ========================================
 Email: ❌ FAIL
@@ -738,7 +738,7 @@ Webhook: ✅ PASS
 
 ### AI Analytics Summary
 ```bash
-$ python3 redhat_status_modular.py --analytics-summary
+$ python3 redhat_status.py --analytics-summary
 🤖 AI ANALYTICS SUMMARY
 ========================================
 📊 Data Quality: 1,234 metrics
@@ -810,10 +810,10 @@ Each module is designed for:
 
 ```bash
 # Database maintenance
-python3 redhat_status_modular.py --db-maintenance
+python3 redhat_status.py --db-maintenance
 
 # Clear all data
-python3 redhat_status_modular.py --clear-cache
+python3 redhat_status.py --clear-cache
 ```
 
 ### Common Troubleshooting
@@ -825,25 +825,25 @@ cd /path/to/bin
 python3 redhat_status/main.py quick
 
 # Or use the launcher
-python3 redhat_status_modular.py quick
+python3 redhat_status.py quick
 ```
 
 #### Notification Issues
 ```bash
 # Test notification channels
-python3 redhat_status_modular.py --test-notifications
+python3 redhat_status.py --test-notifications
 
 # Check configuration
-python3 redhat_status_modular.py --config-check
+python3 redhat_status.py --config-check
 ```
 
 #### Performance Issues
 ```bash
 # Clear cache if stale
-python3 redhat_status_modular.py --clear-cache
+python3 redhat_status.py --clear-cache
 
 # Check performance metrics
-python3 redhat_status_modular.py quick --performance
+python3 redhat_status.py quick --performance
 ```
 
 ## 🎯 Use Cases
@@ -905,9 +905,9 @@ python3 redhat_status_modular.py quick --performance
 - **`.env`** - Environment variables configuration
 
 ### Documentation
-- **Command Line Help** - `python3 redhat_status_modular.py --help`
-- **Version Information** - `python3 redhat_status_modular.py --version`
-- **Configuration Validation** - `python3 redhat_status_modular.py --config-check`
+- **Command Line Help** - `python3 redhat_status.py --help`
+- **Version Information** - `python3 redhat_status.py --version`
+- **Configuration Validation** - `python3 redhat_status.py --config-check`
 
 ## 🎉 **COMPREHENSIVE TEST RESULTS - ALL 26 FLAGS TESTED!**
 

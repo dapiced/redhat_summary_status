@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
-Red Hat Status Checker - Modular Version Launcher
+Red Hat Status Checker - Modular Version
 
-This script provides an easy way to run the modular version
-of the Red Hat Status Checker with the same interface as
-the original monolithic script.
+This script provides the modular version of the Red Hat Status
+Checker with enterprise-grade monitoring capabilities.
 
 Usage:
-    ./redhat_status_modular.py [options]
+    ./redhat_status.py [options]
     
 This maintains full backward compatibility while providing
 the benefits of the new modular architecture.
