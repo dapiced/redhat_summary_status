@@ -31,7 +31,7 @@
     "cleanup_interval": 3600
   },
   "logging": {
-    "enabled": false,
+    "enabled": true,
     "level": "INFO",
     "file": "redhat_status.log",
     "max_size_mb": 10,
@@ -39,7 +39,7 @@
     "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
   },
   "monitoring": {
-    "enabled": false,
+    "enabled": true,
     "alert_thresholds": {
       "availability_critical": 85.0,
       "availability_warning": 95.0,
@@ -54,5 +54,50 @@
     "detailed_timing": false,
     "memory_profiling": false,
     "max_concurrent_operations": 5
+  },
+  "ai_analytics": {
+    "enabled": true,
+    "anomaly_detection": true,
+    "predictive_analysis": true,
+    "learning_window": 50,
+    "anomaly_threshold": 2.0,
+    "min_confidence": 0.7
+  },
+  "database": {
+    "enabled": true,
+    "path": "redhat_monitoring.db",
+    "retention_days": 30,
+    "auto_cleanup": true
+  },
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "use_tls": true,
+      "from_address": "test@example.com",
+      "to_addresses": [
+        "admin@example.com",
+        "ops@example.com"
+      ],
+      "username": "test@example.com",
+      "password": "test-password"
+    },
+    "webhooks": {
+      "enabled": true,
+      "urls": [
+        "https://hooks.slack.com/services/TEST/WEBHOOK/URL"
+      ]
+    }
+  },
+  "slo": {
+    "enabled": true,
+    "targets": {
+      "global_availability": 99.9,
+      "response_time": 2.0,
+      "uptime_monthly": 99.5
+    },
+    "tracking_period": "monthly",
+    "alert_on_breach": true
   }
 }
